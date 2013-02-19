@@ -1,0 +1,27 @@
+spring_profiles: postgresql
+
+database:
+  url: jdbc:postgresql://<%= node['uaadb']['host'] %>:<%= node['uaadb']['port'] %>/<%= node['uaadb']['database'] %>
+  driverClassName: org.postgresql.Driver
+  username: <%= node['uaadb']['username'] %>
+  password: <%= node['uaadb']['password'] %>
+
+<% if node['uaa'] && node['uaa']['users'] %>
+scim:
+  users:
+    <% node['uaa']['users'].each do |user| %>- <%= user %>
+<% end %>
+<% end %>
+
+oauth:
+  clients:
+<% unless node['uaa']['clients']['admin'] %>    admin:
+      authorized-grant-types: client_credentials
+      scope: uaa.none
+      authorities: clients.read,clients.write,clients.secret,uaa.admin,scim.read,scim.write,password.write
+      id: admin
+      secret: <%= node['uaa']['admin']['password'] %>
+      resource-ids: none
+<% end %><% node['uaa']['clients'].each do |id,client| %>    <%= id %>:
+<% client.each do |k,v| %>      <%= k %>: <%= v %>
+<% end %><% end %>

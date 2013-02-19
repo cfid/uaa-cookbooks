@@ -1,0 +1,27 @@
+[submodule "ark"]
+	path = ark
+	url = git://github.com/opscode-cookbooks/ark.git
+[submodule "chef_handler"]
+	path = chef_handler
+	url = git://github.com/opscode-cookbooks/chef_handler.git
+[submodule "java"]
+	path = java
+	url = git://github.com/opscode-cookbooks/java.git
+[submodule "maven"]
+	path = maven
+	url = git://github.com/opscode-cookbooks/maven.git
+[submodule "windows"]
+	path = windows
+	url = git://github.com/opscode-cookbooks/windows.git
+[submodule "git"]
+	path = git
+	url = git://github.com/opscode-cookbooks/git.git
+[submodule "postgresql"]
+	path = postgresql
+	url = git://github.com/opscode-cookbooks/postgresql.git
+[submodule "openssl"]
+	path = openssl
+	url = git://github.com/opscode-cookbooks/openssl.git
+[submodule "tomcat"]
+	path = tomcat
+	url = git://github.com/opscode-cookbooks/tomcat.git
